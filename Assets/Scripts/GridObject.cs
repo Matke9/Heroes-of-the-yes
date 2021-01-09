@@ -1,12 +1,22 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using CodeMonkey.Utils;
 
 public class GridObject : MonoBehaviour
 {
-    // Start is called before the first frame update
+    public Gridd grid;
+
     void Start()
     {
-        Grid grid = new Grid(50,30,0.32f);
+        grid = new Gridd(50,30,0.32f);
+    }
+
+    void Update()
+    {
+        if (Input.GetMouseButtonDown(1))
+        {
+            Debug.Log(grid.GetValue(UtilsClass.GetMouseWorldPosition()));
+        }
     }
 }
